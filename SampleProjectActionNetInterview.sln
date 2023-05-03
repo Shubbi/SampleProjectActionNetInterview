@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleProjectActionNetInterview", "SampleProjectActionNetInterview\SampleProjectActionNetInterview.csproj", "{B959FD3A-E844-4DC4-82D7-4A5CF09E6C41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleProjectActionNetInterview", "SampleProjectActionNetInterview\SampleProjectActionNetInterview.csproj", "{B959FD3A-E844-4DC4-82D7-4A5CF09E6C41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessDomain", "BusinessDomain\BusinessDomain.csproj", "{0C4EF7A2-A5E6-410C-9C8D-E7CAD2B2B0F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessDomain", "BusinessDomain\BusinessDomain.csproj", "{0C4EF7A2-A5E6-410C-9C8D-E7CAD2B2B0F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{7724593E-10C2-47DE-B436-A48548124D35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{7724593E-10C2-47DE-B436-A48548124D35}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Database Scripts", "{B8639E01-B463-4B6C-8D3B-F284C20DFA8C}"
+	ProjectSection(SolutionItems) = preProject
+		1_CreateDatabase.sql = 1_CreateDatabase.sql
+		2_CreateTables.sql = 2_CreateTables.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
