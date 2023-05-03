@@ -9,6 +9,6 @@ namespace DataAccess.Interfaces
 {
     public interface ICustomerRepository : IGenericRepository<Customer>
     {
-        IEnumerable<Customer> GetCustomersFromZipCode(string zipcode);
+        Task<IEnumerable<Customer>> GetCustomersFromZipCode(string zipcode);
     }
 }

@@ -25,14 +25,15 @@ namespace SampleProjectActionNetInterview.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<Product> GetExpensiveProducts()
+        public async Task<IActionResult> GetExpensiveProducts()
         {
-             return _unitOfWork.Products.GetExpensiveProducts().ToList();
-            
+            var products = await _unitOfWork.Products.GetExpensiveProducts();
+
+            return Ok(products);            
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] ProductModel productModel)
+        public async Task<IActionResult> Post([FromBody] ProductModel productModel)
         {
             var product = new Product()
             {
@@ -42,7 +43,7 @@ namespace SampleProjectActionNetInterview.Controllers
 
             try {
                 _unitOfWork.Products.Add(product);
-                _unitOfWork.Save();
+                await _unitOfWork.SaveAsync();
             }
             catch (Exception ex)
             {

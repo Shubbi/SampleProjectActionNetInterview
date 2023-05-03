@@ -33,5 +33,10 @@ namespace DataAccess
         {
             return _shoppingDbContext.SaveChanges();
         }
+
+        public async Task<int> SaveAsync()
+        {
+            return await _shoppingDbContext.SaveChangesAsync();
+        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BusinessDomain.Entities;
 using DataAccess.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,10 @@ namespace DataAccess.Repositories
         }
 
         //Products More than 100 dollars are being considered expensive
-        public IEnumerable<Product> GetExpensiveProducts()
+        public async Task<IEnumerable<Product>> GetExpensiveProducts()
         {
-            return _shoppingDbContext.Products.Where(x => x.Price > 100.0m);
+            var products = await _shoppingDbContext.Products.Where(x => x.Price > 100.0m).ToListAsync();
+            return products;
         }
     }
 }

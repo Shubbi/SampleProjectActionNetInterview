@@ -11,5 +11,6 @@ namespace DataAccess.Interfaces
         ICustomerRepository Customers { get; }
         IProductRepository Products { get; }
         int Save();
+        Task<int> SaveAsync();
     }
 }

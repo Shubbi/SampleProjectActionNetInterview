@@ -9,6 +9,6 @@ namespace DataAccess.Interfaces
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        IEnumerable<Product> GetExpensiveProducts();
+        Task<IEnumerable<Product>> GetExpensiveProducts();
     }
 }

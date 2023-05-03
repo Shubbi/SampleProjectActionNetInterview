@@ -1,5 +1,6 @@
 ﻿using BusinessDomain.Entities;
 using DataAccess.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +16,9 @@ namespace DataAccess.Repositories
             
         }
 
-        public IEnumerable<Customer> GetCustomersFromZipCode(string zipcode)
+        public async Task<IEnumerable<Customer>> GetCustomersFromZipCode(string zipcode)
         {
-            var customers =_shoppingDbContext.Customers.Where(x => x.Zipcode == zipcode );
+            var customers =await _shoppingDbContext.Customers.Where(x => x.Zipcode == zipcode ).ToListAsync();
 
            return customers;
         }

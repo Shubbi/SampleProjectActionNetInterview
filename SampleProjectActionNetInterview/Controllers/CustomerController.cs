@@ -20,14 +20,15 @@ namespace SampleProjectActionNetInterview.Controllers
         }
 
         [HttpGet]
-        public List<Customer> GetCustomersFromZipCode(string zipcode)
+        public async Task<IActionResult> GetCustomersFromZipCode(string zipcode)
         {
-            return _unitOfWork.Customers.GetCustomersFromZipCode(zipcode).ToList();
+            var customers = await _unitOfWork.Customers.GetCustomersFromZipCode(zipcode);
 
+            return Ok(customers);
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] CustomerModel customerModel)
+        public async Task<IActionResult> Post([FromBody] CustomerModel customerModel)
         {
             var customer = new Customer() { 
                 Name = customerModel.Name,
@@ -37,7 +38,7 @@ namespace SampleProjectActionNetInterview.Controllers
             try
             {
                 _unitOfWork.Customers.Add(customer);
-                _unitOfWork.Save();
+                await _unitOfWork.SaveAsync();
             }
             catch (Exception ex)
             {
